@@ -2,6 +2,7 @@ import json
 from typing import Callable, Generic, Iterable, List, Union
 
 from .generics import ProtocolT, TypeT
+from .utils import is_primitive
 
 
 class DjangoArrayDecodingException(Exception):
@@ -21,9 +22,9 @@ class DjangoArrayEncodingException(Exception):
     """
         Exception raised inside djangoarrayfield.DjangoArrayEncoder
     """
-    def __init__(self, obj: Iterable[ProtocolT], message: Union[str, None] = None, _type: TypeT = TypeT):
+    def __init__(self, objs: Iterable[TypeT], message: Union[str, None] = None, _type: TypeT = TypeT):
         if message is None:
-            self.message: str = f"Error when encoding array of {TypeT} type objects\nInput container: {list(obj)}"
+            self.message: str = f"Error when encoding array of {TypeT} type objects\nInput container: {list(objs)}"
         else:
             self.message: str = message
         self._type: TypeT = TypeT
@@ -37,14 +38,21 @@ class DjangoArrayEncoder(Generic[TypeT], json.JSONEncoder):
     def __init__(self):
         super().__init__()
 
-    def default(self, obj: Iterable[ProtocolT]):
+    def default(self, objs: Iterable[TypeT]):
         """
             Returns deserialized array of objects of generic type TypeT
         """
         try:
-            ret: Iterable[dict] = [o.__dict__() for o in obj]
+            if not isinstance(objs, Iterable):
+                raise TypeError("Input parameter objs is {type(objs)} and is not Iterable")
+            if all([is_primitive(obj) for obj in objs]):
+                ret: Iterable[str] = [obj.__str__() for obj in objs]
+            elif all([hasattr(obj, "__dict__") for obj in objs]):
+                ret: Iterable[dict] = [dict(obj) for obj in objs]
+            else:
+                raise TypeError("Members of input objs: Iterable do not to support neither __str__ nor __dict__")
         except TypeError as e:
-            raise DjangoArrayEncodingException(obj=obj, _type=TypeT) from e
+            raise DjangoArrayEncodingException(objs=objs, _type=TypeT) from e
         return ret
 
 
