@@ -14,15 +14,15 @@ class TestArrayField(TestCase):
 
     def test_int(self):
         int_val: List[int] = TestArrayModel.objects.get(name="test_array_field_int")
-        self.assertEqual(self.test_array_int == int_val)
+        self.assertEqual(self.test_array_int, int_val)
 
     def test_str(self):
         str_val: List[str] = TestArrayModel.objects.get(name="test_array_field_str")
-        self.assertEqual(self.test_array_str == str_val)
+        self.assertEqual(self.test_array_str, str_val)
 
     def test_obj(self):
         obj_val: List[TestObjectType] = TestArrayModel.objects.get(name="test_array_field_obj")
-        self.assertEqual(self.test_array_obj == obj_val)
+        self.assertEqual(self.test_array_obj, obj_val)
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -37,4 +37,3 @@ class TestArrayField(TestCase):
     def tearDownClass(cls) -> None:
         super(TestArrayField, cls).tearDownClass()
         del cls.test_model_record
-

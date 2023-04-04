@@ -38,7 +38,7 @@ class DjangoArrayEncoder(Generic[TypeT], json.JSONEncoder):
     def __init__(self):
         super().__init__()
 
-    def default(self, objs: Iterable[TypeT]):
+    def default(self, objs: Iterable[TypeT]) -> List[str, dict]:
         """
             Returns deserialized array of objects of generic type TypeT
         """
@@ -46,9 +46,9 @@ class DjangoArrayEncoder(Generic[TypeT], json.JSONEncoder):
             if not isinstance(objs, Iterable):
                 raise TypeError("Input parameter objs is {type(objs)} and is not Iterable")
             if all([is_primitive(obj) for obj in objs]):
-                ret: Iterable[str] = [obj.__str__() for obj in objs]
+                ret: List[str] = [obj.__str__() for obj in objs]
             elif all([hasattr(obj, "__dict__") for obj in objs]):
-                ret: Iterable[dict] = [dict(obj) for obj in objs]
+                ret: List[dict] = [dict(obj) for obj in objs]
             else:
                 raise TypeError("Members of input objs: Iterable do not to support neither __str__ nor __dict__")
         except TypeError as e:
