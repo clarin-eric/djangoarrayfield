@@ -10,7 +10,7 @@ maintainers = [
     "Michał Gawor <michal@clarin.eu>",
 ]
 packages = [
-    { include = "src/test_arrayfield_django_conf" },
+    { include = "./test_arrayfield_django_conf" },
 ]
 
 

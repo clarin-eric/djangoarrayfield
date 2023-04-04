@@ -10,9 +10,8 @@ maintainers = [
     "Michał Gawor <michal@clarin.eu>",
 ]
 packages = [
-    { include = "src/djangoarray" },
+    { include = "djangoarray", from = "src" },
 ]
-
 
 [tool.poetry.urls]
 changelog = "https://github.com/clarin-eric/djangoarrayfield/blob/main/CHANGELOG.md"

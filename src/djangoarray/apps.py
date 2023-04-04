@@ -1,4 +1,4 @@
-import djangoarrayfield
+import django_arrayfield
 from django.apps import AppConfig
 
 
