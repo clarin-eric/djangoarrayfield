@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: '3.x'
     - name: Update pip
@@ -28,4 +28,4 @@ jobs:
     - name: Test DjangoArray
       run: python ./tests/manage.py test django-arrayfield
       env:
-        DJANGO_SETTINGS_MODULE: ./tests/test_arrayfield_django_conf/settings.py
+        DJANGO_SETTINGS_MODULE: test_arrayfield_django_conf.settings.py
