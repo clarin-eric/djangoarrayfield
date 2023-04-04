@@ -1,0 +1,33 @@
+"""
+This workflow tests runs unit tests on ArrayFields and integration test with Django
+"""
+
+name: Upload Python Package
+
+on:
+  [push]
+defaults:
+    run:
+        shell: bash
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Update pip
+      run: |
+        python -m pip install --upgrade pip
+        sudo apt-get update -y
+    - name: Install DjangoArray
+      run: pip install .
+    - name: Install Django testing configuration
+      run: pip install ./tests
+    - name: Test DjangoArray
+      run: python ./tests/manage.py test django-arrayfield
+      env:
+        DJANGO_SETTINGS_MODULE=./tests/test_arrayfield_django_conf/settings.py
