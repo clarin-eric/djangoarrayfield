@@ -28,4 +28,4 @@ jobs:
     - name: Test DjangoArray
       run: python ./tests/manage.py test django-arrayfield
       env:
-        DJANGO_SETTINGS_MODULE=./tests/test_arrayfield_django_conf/settings.py
+        DJANGO_SETTINGS_MODULE: ./tests/test_arrayfield_django_conf/settings.py
