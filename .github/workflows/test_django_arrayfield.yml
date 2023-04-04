@@ -1,6 +1,4 @@
-"""
-This workflow tests runs unit tests on ArrayFields and integration test with Django
-"""
+# This workflow tests runs unit tests on ArrayFields and integration test with Django
 
 name: Upload Python Package
 
