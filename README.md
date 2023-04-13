@@ -5,7 +5,9 @@ Reusable Django application providing generic array field `DjangoArrayField[T]`.
 ### Installation
 
 ##### PyPi:
-`TBD`
+```shell
+pip install django-arrayfield
+```
 
 #### from source:
 ```sh
