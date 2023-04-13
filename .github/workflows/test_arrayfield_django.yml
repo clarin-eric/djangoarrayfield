@@ -11,6 +11,8 @@ defaults:
 jobs:
   deploy:
     runs-on: ubuntu-22.04
+    env:
+      DJANGO_SETTINGS_MODULE: test_arrayfield_django_conf.settings
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python
@@ -29,5 +31,3 @@ jobs:
       run: python ./tests/manage.py makemigrations
     - name: Test package
       run: python ./tests/manage.py test djangoarrayfield
-      env:
-        DJANGO_SETTINGS_MODULE: test_arrayfield_django_conf.settings
