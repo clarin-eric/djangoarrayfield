@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "django-arrayfield"
 description = "Django dependency providing ArrayField<Type> functionality"
-version = "1.0.0-a"
+version = "1.0.0-a1"
 license = "./LICENSE.txt"
 authors = [
     "Michał Gawor <michal@clarin.eu>",
