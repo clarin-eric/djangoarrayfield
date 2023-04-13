@@ -40,7 +40,10 @@ class ExampleModel(models.Model):
 ```
 
 ### Compatibility
-Currently supported (has test coverage, not listed does not imply incompatibility)
+Currently supported (has been tested, not listed does not imply incompatibility)
+
+##### Python
+3.10, 3.11
 
 ##### Django:
 4.1.7

@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "test_arrayfield_django_conf"
 description = "Mock django project for testing djangoarray.fields.ArrayField"
-version = "1.0.0-a1"
+version = "1.0.0-rc"
 license = "./LICENSE.txt"
 authors = [
     "Michał Gawor <michal@clarin.eu>",
@@ -13,10 +13,9 @@ packages = [
     { include = "./test_arrayfield_django_conf" },
 ]
 
-
 [tool.poetry.urls]
 changelog = "https://github.com/clarin-eric/djangoarrayfield/blob/main/CHANGELOG.md"
-documentation = ""
+documentation = "https://github.com/clarin-eric/djangoarrayfield/blob/main/README.md"
 homepage = "https://centres.clarin.eu/"
 repository = "https://github.com/clarin-eric/djangoarrayfield"
 
