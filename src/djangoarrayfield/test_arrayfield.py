@@ -41,6 +41,7 @@ class TestSerializer(TransactionTestCase):
     def test_obj_deserialization(self):
         self.assertEqual(test_array_obj, self.decoder_obj.decode('[{"test_val_1": "a", "test_val_2": 1}, {"test_val_1": "b", "test_val_2": 2}]'))
 
+
 class TestArrayField(TestCase):
     def test_int(self):
         obj = TestArrayModel.objects.get(id=1)

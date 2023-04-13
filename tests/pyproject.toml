@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "test_arrayfield_django_conf"
 description = "Mock django project for testing djangoarray.fields.ArrayField"
-version = "0.0.1"
+version = "1.0.0-a"
 license = "./LICENSE.txt"
 authors = [
     "Michał Gawor <michal@clarin.eu>",
