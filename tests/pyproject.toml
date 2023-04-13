@@ -22,7 +22,6 @@ repository = "https://github.com/clarin-eric/djangoarrayfield"
 
 [tool.poetry.dependencies]
 Django = '4.1.7'
-django-debug-toolbar = '2.2.1'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

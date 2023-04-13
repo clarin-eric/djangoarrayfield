@@ -10,7 +10,7 @@ maintainers = [
     "Michał Gawor <michal@clarin.eu>",
 ]
 packages = [
-    { include = "djangoarray", from = "src" },
+    { include = "djangoarrayfield", from = "src" },
 ]
 
 [tool.poetry.urls]
@@ -21,7 +21,7 @@ repository = "https://github.com/clarin-eric/djangoarrayfield"
 
 [tool.poetry.dependencies]
 Django = '4.1.7'
-django-debug-toolbar = '2.2.1'
+django-debug-toolbar = '4.0.0'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

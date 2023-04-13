@@ -86,7 +86,7 @@ INSTALLED_APPS = ('django.contrib.auth',
                   'django.contrib.staticfiles',
                   'django.contrib.admin',
                   'django.contrib.admindocs',
-                  'djangoarray', )
+                  'djangoarrayfield', )
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,

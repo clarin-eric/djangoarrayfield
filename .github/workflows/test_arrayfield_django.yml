@@ -1,6 +1,6 @@
 # This workflow tests runs unit tests on ArrayFields and integration test with Django
 
-name: Upload Python Package
+name: Build and test DjangoArrayField
 
 on:
   [push]
@@ -25,7 +25,9 @@ jobs:
       run: pip install .
     - name: Install Django testing configuration
       run: pip install ./tests
-    - name: Test DjangoArray
-      run: python ./tests/manage.py test django-arrayfield
+    - name: Prepare testing DB instance
+      run: python ./tests/manage.py makemigrations
+    - name: Test package
+      run: python ./tests/manage.py test djangoarrayfield
       env:
-        DJANGO_SETTINGS_MODULE: test_arrayfield_django_conf.settings.py
+        DJANGO_SETTINGS_MODULE: test_arrayfield_django_conf.settings
