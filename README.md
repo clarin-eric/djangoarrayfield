@@ -1,6 +1,6 @@
 # DjangoArrayField
 
-Reusable Django application providing generic array field `DjangoArrayField[T]`. `T` supports Django built-ins and Django serializable generics initializable from **kwargs.
+Reusable Django application providing generic array field `DjangoArrayField[T]`. `T` supports Django built-ins and Django serializable objects initializable from **kwargs.
 
 ### Installation
 
@@ -9,8 +9,8 @@ Reusable Django application providing generic array field `DjangoArrayField[T]`.
 
 #### from source:
 ```sh
-git clone https://github.com/clarin-eric/djangoarrayfield`
-pip install ./djangoarraygield
+git clone https://github.com/clarin-eric/djangoarrayfield
+pip install ./djangoarrayfield
 ```
 
 ### Testing
